@@ -4,10 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 1125;
+    public static final int HEIGHT = 800;
     final int FPS = 60;
     Thread gameThread;
+    Board board = new Board();
 
     // GamePanel Constructor
     public GamePanel() {
@@ -21,6 +22,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
+        Graphics2D graphics2D = (Graphics2D)graphics;
+        board.draw(graphics2D);
     }
 
     @Override
