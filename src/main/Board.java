@@ -8,6 +8,7 @@ public class Board {
     public static final int SQUARE_SIZE = 100;
     public static final int HALF_SQUARE_SIZE = SQUARE_SIZE/2;
 
+    // Creates the chessboard
     public void draw(Graphics2D graphics2D) {
         int c = 0;
         for(int rank = 0; rank < MAX_RANK; rank++ ){
