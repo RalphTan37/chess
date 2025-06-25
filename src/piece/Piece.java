@@ -5,6 +5,7 @@ import main.Board;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.awt.Graphics2D;
 
 
 // Superclass for all chess pieces
@@ -42,7 +43,13 @@ public class Piece {
     public int getLetter(int file) {
         return file * Board.SQUARE_SIZE;
     }
+
     public int getNum(int rank) {
         return rank * Board.SQUARE_SIZE;
+    }
+
+    // Draw Chess Piece Method
+    public void draw(Graphics2D graphics2D) {
+        graphics2D.drawImage(image, letter, num, Board.SQUARE_SIZE, Board.SQUARE_SIZE, null);
     }
 }

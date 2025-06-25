@@ -1,6 +1,7 @@
 package main;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Color;
 
 public class Board {
     final int MAX_FILE = 8;

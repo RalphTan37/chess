@@ -8,9 +8,9 @@ public class Queen extends Piece{
         super(color, file, rank);
 
         if (color == GamePanel.WHITE) {
-            image = getImage("/piece/wQ.png");
+            image = getImage("/piece/wQ");
         } else {
-            image = getImage("/piece/bQ.png");
+            image = getImage("/piece/bQ");
         }
     }
 }
