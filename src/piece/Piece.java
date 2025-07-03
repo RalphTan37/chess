@@ -48,6 +48,21 @@ public class Piece {
         return rank * Board.SQUARE_SIZE;
     }
 
+    public int getFile(int x) {
+        return (x + Board.HALF_SQUARE_SIZE)/Board.SQUARE_SIZE;
+    }
+
+    public int getRank(int y) {
+        return (y + Board.HALF_SQUARE_SIZE)/Board.SQUARE_SIZE;
+    }
+
+    public void updatePosition() {
+        letter = getLetter(file);
+        num = getNum(rank);
+        preFile = getFile(letter);
+        preRank = getRank(num);
+    }
+
     // Draw Chess Piece Method
     public void draw(Graphics2D graphics2D) {
         graphics2D.drawImage(image, letter, num, Board.SQUARE_SIZE, Board.SQUARE_SIZE, null);
