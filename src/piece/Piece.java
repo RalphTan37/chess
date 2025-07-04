@@ -108,10 +108,14 @@ public class Piece {
     // Checks if square is valid
     public boolean isValidSquare(int targetFile, int targetRank) {
         targetedPiece = canCapture(targetFile, targetRank);
-        if (targetedPiece == null) return true; // Available Square
-        else {                                  // Occupied Square
-            if (targetedPiece.color != this.color) return true; // If opposing piece, it can be captured
-            else targetedPiece = null;
+        if (targetedPiece == null) { // Available Square
+            return true;
+        } else {                     // Occupied Square
+            if (targetedPiece.color != this.color) {
+                return true; // If opposing piece, it can be captured
+            } else {
+                targetedPiece = null;
+            }
         }
         return false;
     }

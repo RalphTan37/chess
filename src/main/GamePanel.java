@@ -147,7 +147,9 @@ public class GamePanel extends JPanel implements Runnable{
         // Checks if the chess piece hovering over square is legal
         if (activePiece.canMove(activePiece.file, activePiece.rank)) {
             canMove = true;
-            if (activePiece.targetedPiece != null) simPieces.remove(activePiece.targetedPiece.getIndex());
+            if (activePiece.targetedPiece != null) {
+                simPieces.remove(activePiece.targetedPiece.getIndex());
+            }
             validSquare = true;
         }
     }
