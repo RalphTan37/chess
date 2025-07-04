@@ -1,8 +1,8 @@
 # Chess Game
 
 Developing a chess game using Java Swing. </br>
-Java Version: 24.01.1 </br>
-Javac Version: 24.01.1 </br>
+Java Version: 24.0.1 </br>
+Javac Version: 24.0.1 </br>
 
 ## Add Run/Debug Configuration
 Name: Run Chess </br>
