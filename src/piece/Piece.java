@@ -97,6 +97,14 @@ public class Piece {
         return false;
     }
 
+    // Checks if chess piece is on the same square
+    public boolean isSameSquare(int targetFile, int targetRank) {
+        if (targetFile == preFile && targetRank == preRank) {
+            return true;
+        }
+        return false;
+    }
+
     // Returns chess pieces that can be captured
     public Piece canCapture(int targetFile, int targetRank) {
         for (Piece piece : GamePanel.simPieces) {
@@ -117,6 +125,51 @@ public class Piece {
                 targetedPiece = null;
             }
         }
+        return false;
+    }
+
+    // Checks if there are several chess pieces in the same line, so pieces that move horizontally and vertically do not jump over pieces
+    public boolean pieceIsOnLine(int targetFile, int targetRank) {
+        // When the chess piece is moving to the left
+        for (int i = preFile - 1; i > targetFile; i--){
+           for (Piece piece : GamePanel.simPieces) {
+               if (piece.file == i && piece.rank == targetRank) {
+                   targetedPiece = piece;
+                   return true;
+               }
+           }
+        }
+
+        // When the chess piece is moving to the right
+        for (int i = preFile + 1; i < targetFile; i++) {
+            for (Piece piece : GamePanel.simPieces) {
+                if (piece.file == i && piece.rank == targetRank) {
+                    targetedPiece = piece;
+                    return true;
+                }
+            }
+        }
+
+        // When the chess piece is moving up
+        for (int i = preRank - 1; i > targetRank; i--) {
+            for (Piece piece : GamePanel.simPieces) {
+                if (piece.rank == i && piece.file == targetFile) {
+                    targetedPiece = piece;
+                    return true;
+                }
+            }
+        }
+
+        // When the chess piece is moving down
+        for (int i = preRank + 1; i < targetRank; i++) {
+            for (Piece piece : GamePanel.simPieces) {
+                if (piece.rank == i && piece.file == targetFile) {
+                    targetedPiece = piece;
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 

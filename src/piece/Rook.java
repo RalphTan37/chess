@@ -13,4 +13,17 @@ public class Rook extends Piece{
             image = getImage("/piece/bR");
         }
     }
+
+    // Rook Mobility Logic
+    public boolean canMove(int targetFile, int targetRank) {
+        if (isWithinBoard(targetFile,targetRank) && !isSameSquare(targetFile, targetRank)) {
+            // Rook can move horizontally and vertically
+            if (targetFile == preFile || targetRank == preRank) {
+                if (isValidSquare(targetFile,targetRank) && !pieceIsOnLine(targetFile, targetRank)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
